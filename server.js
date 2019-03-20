@@ -52,7 +52,7 @@ app.get("/search",function(req,res){
            res.render("search",{userValue : search, test: "testing", nasa :data});
            console.log(JSON.stringify(data.collection.items[0].data[0].description) + "just did");
            data.collection.items.forEach(object => {
-            console.log(JSON.stringify(object.data[0].title) + "loop");
+            console.log(JSON.stringify(object.data[0].title.length) + "loop");
            });
        });
     //res.json(student);

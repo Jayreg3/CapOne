@@ -4,31 +4,44 @@
   <!-- back button takes the user to the index page -->
   <button onclick="location.href='/'" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Back
     to Search</button></br>
+    <% if (userValue) { %>
+      </br><h4>You searched for:</h4>
+       <h6>Title: "<%- userValue.title %>" | Description: "<%- userValue.description %>" </h6>
+    <% } %>
+    </br></br><h4> Search Results </h4>
+
   </br><div class="col-md-12">
     <table class='table table-hover table-responsive table-bordered'>
       <thead style="border:1px solid" class="alert alert-info">
-        <th style="border:1px solid"><strong>Name</strong></th>
+        <th style="border:1px solid"><strong>Title</strong></th>
+        <th style="border:1px solid"><strong>Media Type</strong></th>
+        <th style="border:1px solid"><strong>Center</strong></th>
+        <th style="border:1px solid"><strong>Date Created</strong></th>
+        <th style="border:1px solid"><strong>Description</strong></th>
         <th style="border:1px solid"><strong>Image</strong></th>
-        <th style="border:1px solid"><strong>People</strong></th>
-        <th style="border:1px solid"><strong>Url</strong></th>
       </thead>
-    </table>
-
-
-    <% if (test) { %>
-      <%- test %>
-    <% } %>
 
     <% if (nasa) { %>
       <% nasa.collection.items.forEach(object => { %>
-          <p><%- object.data[0].title %> </p>
+        <tr>
+          <td><%- object.data[0].title %> </td>
+          <td><%- object.data[0].media_type %> </td>
+          <td><%- object.data[0].center %> </td>
+          <td><%- object.data[0].date_created.substring(0,10) %> </td>
+          <td><%- object.data[0].description.substring(0,1000) %><% if (object.data[0].description.length > 1001 ) {%>...<% } %>
+          </td>
+          <% if (object.links) { %>
+            <td style="padding:10px; border:1px solid">
+              <img src="<%- object.links[0].href %>" style="width:400px" />
+            </td>
+          <% } %>
+        </tr>
         <% }); %>
     <% } %>
 
-    <% if (userValue) { %>
-      <h4>You searched for:</h4>
-       <h5>Title: <%- userValue.title %> </h5>
-      <h5> Description: <%- userValue.description %> </h5>
-    <% } %>
+    </table>
+
+
+    
   
   <%- include('footer') %>
