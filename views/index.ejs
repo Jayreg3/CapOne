@@ -1,0 +1,33 @@
+<%- include('header') %>
+
+  <h1>Gallery Listing</h1>
+
+
+  <ul>
+      <li>
+          <%- galleries2.explanation %>
+      </li>
+  </ul>
+
+  <h1>Search for Nasa Image</h1>
+    <form name="form1" method="GET" action="/search">
+    <table>
+        <tr>
+        <td>Title</td>
+        <td><input type="text" name="titles" ></td>
+        </tr>
+        <tr>
+        <td>Description</td>
+        <td><input type="text" name="description" ></td>
+        </tr>
+        <tr>
+        <td colspan="2"><input type="submit" value="Search" ></td>
+        </tr>
+    </table>
+    </form>   
+    
+    <% if (test) { %>
+      <%- test %>
+    <% } %>
+
+  <%- include('footer') %>
