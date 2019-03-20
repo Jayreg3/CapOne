@@ -1,13 +1,13 @@
 <%- include('header') %>
 
 
-  <h1>NASA Object Search Listing</h1>
+  <h1>NASA News Search</h1>
   <!-- back button takes the user to the index page -->
   <button onclick="location.href='/'" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Back
     to Search</button></br>
     <% if (userValue) { %>
       </br><h4>You searched for:</h4>
-       <h6>Title: "<%- userValue.title %>" | Description: "<%- userValue.description %>" </h6>
+       <h6>Search: "<%- userValue.general_search %>" | Title: "<%- userValue.title %>" | Description: "<%- userValue.description %>" | Location: "<%- userValue.location %>" | Nasa Center: "<%- userValue.nasa_center %>"</h6>
     <% } %>
     </br></br><h4> Search Results </h4>
 

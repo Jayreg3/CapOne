@@ -1,33 +1,46 @@
 <%- include('header') %>
-
-  <h1>Gallery Listing</h1>
-
-
-  <ul>
-      <li>
-          <%- galleries2.explanation %>
-      </li>
-  </ul>
-
-  <h1>Search for Nasa Image</h1>
+  
+<div style="color:red; position: absolute; top: 20%; left: 40%;">
+  <h1>Search for Nasa Content</h1>
+  <h7>Created by Jerry Registre</h7>
     <form name="form1" method="GET" action="/search">
     <table>
         <tr>
+        <td>General Search</td>
+        <td><input type="text" name="general_search" ></td>
+        </tr>
+
+        <tr>
+        <td><hr><h4>Search By:</h4></td></br>
+        </tr>
         <td>Title</td>
-        <td><input type="text" name="titles" ></td>
+        <td><input type="text" name="title" ></td>
         </tr>
         <tr>
         <td>Description</td>
         <td><input type="text" name="description" ></td>
         </tr>
         <tr>
+        <td>Location</td>
+        <td><input type="text" name="location" ></td>
+        </tr>
+        <tr>
+        <td>Nasa Center</td>
+        <td><input type="text" name="nasa_center" ></td>
+        </tr>
+        <tr>
         <td colspan="2"><input type="submit" value="Search" ></td>
         </tr>
     </table>
     </form>   
-    
-    <% if (test) { %>
-      <%- test %>
-    <% } %>
+  </div>
 
+<div>
+  <ul>
+      <li>
+          <%- galleries2.explanation %>
+      </li>
+  </ul>
+</div>
+  
   <%- include('footer') %>
