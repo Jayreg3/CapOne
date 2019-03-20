@@ -20,19 +20,15 @@
     <% } %>
 
     <% if (nasa) { %>
-      <%- nasa.collection %><% ; %>
       <% nasa.collection.items.forEach(object => { %>
-        <tr>
-          <td style="padding:10px; border:1px solid"><%- object.data.title %> </a>
-          </td>
-          <td>one more</td>
-        </tr>
+          <p><%- object.data[0].title %> </p>
         <% }); %>
     <% } %>
 
     <% if (userValue) { %>
-      <%- userValue.title %>
-      <%- userValue.description %>
+      <h4>You searched for:</h4>
+       <h5>Title: <%- userValue.title %> </h5>
+      <h5> Description: <%- userValue.description %> </h5>
     <% } %>
   
   <%- include('footer') %>

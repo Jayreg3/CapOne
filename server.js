@@ -44,8 +44,9 @@ app.get("/search",function(req,res){
         description : req.query.description
     }
     console.log(search);
+    const url = `https://images-api.nasa.gov/search?q=${search.title}&description=${search.description}`;
     //fetch('https://images-api.nasa.gov/search?q=rock&description=Tune%20into%20Third%20Rock%20Radio%20for%20The%20Joe%20Show%20starring%20Joe%20Acaba%20as%20Guest%20DJ%20on%20Thursday,%20December%207th%20at%205pm')
-    fetch('https://images-api.nasa.gov/search?q=rock&description=johnson')
+    fetch(url)
         .then(response => response.json())
         .then(data => {
            res.render("search",{userValue : search, test: "testing", nasa :data});
