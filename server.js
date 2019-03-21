@@ -25,9 +25,23 @@ app.get("/search",function(req,res){
         title : req.query.title,
         description : req.query.description,
         location : req.query.location,
-        nasa_center : req.query.nasa_center
+        nasa_center : req.query.nasa_center,
+        year_start : req.query.year_start,
+        year_end : req.query.year_end
     }
-    const url = `https://images-api.nasa.gov/search?q=${search.general_search}&title=${search.title}&description=${search.description}&location=${search.location}&center=${search.nasa_center}`;
+    var url;
+    if (search.year_start && search.year_end){
+        url = `https://images-api.nasa.gov/search?q=${search.general_search}&title=${search.title}&description=${search.description}&location=${search.location}&center=${search.nasa_center}&year_start=${search.year_start}&year_end=${search.year_end}`;
+    }
+    else if (search.year_end){
+        url = `https://images-api.nasa.gov/search?q=${search.general_search}&title=${search.title}&description=${search.description}&location=${search.location}&center=${search.nasa_center}&year_end=${search.year_end}`; 
+    }
+    else if (search.year_start){
+        url = `https://images-api.nasa.gov/search?q=${search.general_search}&title=${search.title}&description=${search.description}&location=${search.location}&center=${search.nasa_center}&year_start=${search.year_start}`;
+    }
+    else {
+        url = `https://images-api.nasa.gov/search?q=${search.general_search}&title=${search.title}&description=${search.description}&location=${search.location}&center=${search.nasa_center}`;
+    }
     fetch(url)
         .then(response => response.json())
         .then(data => {
