@@ -1,7 +1,7 @@
 <%- include('header') %>
   
-<div style="color:red; position: absolute; top: 20%; left: 40%;">
-  <h1>Search for Nasa Content</h1>
+<div style="position: absolute; top: 20%; left: 40%;">
+  <h1>Nasa Content Search</h1>
   <h7>Created by Jerry Registre</h7>
     <form name="form1" method="GET" action="/search">
     <table>
@@ -25,8 +25,24 @@
         <td><input type="text" name="location" ></td>
         </tr>
         <tr>
-        <td>Nasa Center</td>
-        <td><input type="text" name="nasa_center" ></td>
+          <td>Nasa Center</td>
+          <td>
+            <select name="nasa_center">
+              <option selected value =""></option>
+              <option value="HQ">Headquarters</option>
+              <option value="ARC">Ames Research Center</option>              
+              <option value="AFRC">Armstrong Flight Research Center</option>
+              <option value="GRC">Glenn Research Center</option>
+              <option value="GSFC">Goddard Space Flight Center</option>
+              <option value="JPL">Jet Propulsion Laboratory</option>
+              <option value="JSC">Johnson Space Center</option>
+              <option value="KSC">Kennedy Space Center</option>
+              <option value="LRC">Langley Research Center</option>
+              <option value="MSFC">Marshall Space Flight Center</option>
+              <option value="MAF">Michoud Assembly Facility</option>
+              <option value="SSC">Stennis Space Center</option>
+]            </select>
+          </td>
         </tr>
         <tr>
         <td colspan="2"><input type="submit" value="Search" ></td>
@@ -34,13 +50,5 @@
     </table>
     </form>   
   </div>
-
-<div>
-  <ul>
-      <li>
-          <%- galleries2.explanation %>
-      </li>
-  </ul>
-</div>
   
   <%- include('footer') %>
